@@ -29,33 +29,35 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // For Netlify Forms, we can use the native form submission
-    // But we'll enhance it with our state management
     const form = e.target;
+    
+    // Try a direct form submission approach for Netlify
     const formData = new FormData(form);
     
-    // Ensure form-name is present
-    formData.set('form-name', 'contact');
-    
+    // Method 1: Try fetch first
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
     .then(response => {
-      if (response.ok) {
+      console.log('Response status:', response.status);
+      if (response.ok || response.status === 200) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        // If fetch fails, try the native form submission as fallback
+        console.log('Fetch failed, trying native submission');
+        form.submit();
       }
     })
     .catch(error => {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
+      console.error('Fetch error, trying native submission:', error);
+      // Fallback to native form submission
+      form.submit();
     })
     .finally(() => {
-      setIsSubmitting(false);
+      setTimeout(() => setIsSubmitting(false), 2000);
     });
   };
 
@@ -116,13 +118,12 @@ const Contact = () => {
               onSubmit={handleSubmit}
               name="contact"
               method="POST"
-              action="/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="space-y-3 bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-2xl p-5 shadow-2xl border border-gray-200 dark:border-gray-700 blue:border-blue-700"
               style={{ transform: "translateZ(20px)" }}
             >
-              {/* Hidden inputs for Netlify */}
+              {/* Netlify form detection */}
               <input type="hidden" name="form-name" value="contact" />
               <div style={{ display: 'none' }}>
                 <label>
