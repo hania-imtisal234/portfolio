@@ -205,19 +205,19 @@ const About = () => {
                     onHoverStart={() => setHoveredSkill(skill.name)}
                     onHoverEnd={() => setHoveredSkill(null)}
                     whileHover={{ 
-                      scale: 1.05,
-                      y: -5,
+                      scale: 1.02,
+                      y: -3,
                     }}
                     style={{ transformStyle: "preserve-3d" }}
                   >
                     <motion.div 
-                      className="bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-xl p-4 text-center shadow-lg border border-gray-200 dark:border-gray-700 blue:border-blue-800 hover:shadow-xl transition-all duration-300"
+                      className="bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-xl p-4 text-center shadow-lg border border-gray-200 dark:border-gray-700 blue:border-blue-800 hover:shadow-xl transition-all duration-300 overflow-hidden"
                       style={{ transform: "translateZ(15px)" }}
                     >
                       <motion.div 
-                        className="text-2xl mb-2"
+                        className="text-2xl mb-2 flex items-center justify-center h-8"
                         animate={{
-                          scale: hoveredSkill === skill.name ? 1.2 : 1,
+                          scale: hoveredSkill === skill.name ? 1.1 : 1,
                         }}
                         transition={{ duration: 0.3 }}
                       >
