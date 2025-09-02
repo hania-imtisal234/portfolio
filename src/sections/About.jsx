@@ -258,11 +258,11 @@ const About = () => {
             className="text-center"
           >
             <motion.div
-              className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 blue:from-blue-800 blue:to-purple-800 rounded-2xl p-6 border border-blue-200 dark:border-blue-700 blue:border-blue-600"
+              className=" dark:from-blue-900 dark:to-purple-900 blue:from-blue-800 blue:to-purple-800 rounded-2xl p-6 border border-blue-200 dark:border-blue-700 blue:border-blue-600"
               whileHover={{ scale: 1.02, rotateY: 2 }}
               style={{ transformStyle: "preserve-3d" }}
             >
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white blue:text-blue-50 mb-2">
+              <h4 className="text-lg font-bold text-white-900 dark:text-white blue:text-blue-50 mb-2">
                 Let's Build Something Amazing Together
               </h4>
               <p className="text-gray-700 dark:text-gray-300 blue:text-blue-200 mb-4">
