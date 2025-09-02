@@ -30,8 +30,12 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Using Netlify Forms - works automatically when deployed to Netlify
-      const formData = new FormData(e.target);
+      // Create FormData from the form element
+      const form = e.target;
+      const formData = new FormData(form);
+      
+      // Ensure form-name is included
+      formData.append('form-name', 'contact');
       
       const response = await fetch('/', {
         method: 'POST',
@@ -44,7 +48,7 @@ const Contact = () => {
         setFormData({ name: '', email: '', message: '' }); // Reset form
       } else {
         setSubmitStatus('error');
-        console.error('Error submitting form');
+        console.error('Error submitting form:', response.statusText);
       }
     } catch (error) {
       setSubmitStatus('error');
@@ -59,6 +63,10 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Clear any previous status when user starts typing
+    if (submitStatus) {
+      setSubmitStatus(null);
+    }
   };
 
   return (
@@ -112,7 +120,7 @@ const Contact = () => {
               className="space-y-3 bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-2xl p-5 shadow-2xl border border-gray-200 dark:border-gray-700 blue:border-blue-700"
               style={{ transform: "translateZ(20px)" }}
             >
-              {/* Netlify honeypot field */}
+              {/* Hidden inputs for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
               <div style={{ display: 'none' }}>
                 <label>
