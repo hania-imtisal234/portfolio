@@ -12,6 +12,15 @@
   # Node.js version
   NODE_VERSION = "18"
 
+# Enable form processing
+[build.processing]
+  skip_processing = false
+
+# Form settings
+[forms]
+  # Enable form spam protection
+  spam_protection = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
