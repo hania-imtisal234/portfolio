@@ -24,41 +24,39 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    try {
-      // Create form data from the form
-      const formData = new FormData(e.target);
-      
-      // Convert to URL encoded format for Netlify
-      const params = new URLSearchParams();
-      for (let [key, value] of formData.entries()) {
-        params.append(key, value);
-      }
-      
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString(),
-      });
-
+    // For Netlify Forms, we can use the native form submission
+    // But we'll enhance it with our state management
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Ensure form-name is present
+    formData.set('form-name', 'contact');
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(response => {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        // Log the error for debugging
-        console.error('Form submission failed:', response.status, response.statusText);
-        setSubmitStatus('error');
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-    } catch (error) {
-      console.error('Network error:', error);
+    })
+    .catch(error => {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
-    } finally {
+    })
+    .finally(() => {
       setIsSubmitting(false);
-    }
+    });
   };
 
   const handleChange = (e) => {
@@ -118,6 +116,7 @@ const Contact = () => {
               onSubmit={handleSubmit}
               name="contact"
               method="POST"
+              action="/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="space-y-3 bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-2xl p-5 shadow-2xl border border-gray-200 dark:border-gray-700 blue:border-blue-700"
