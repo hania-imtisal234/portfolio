@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#bgGradient)" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Code brackets -->
+  <text x="4" y="20" font-family="monospace" font-size="12" font-weight="bold" fill="#64748b">&lt;</text>
+  <text x="26" y="20" font-family="monospace" font-size="12" font-weight="bold" fill="#64748b">/&gt;</text>
+  
+  <!-- Letter H -->
+  <text x="16" y="21" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="url(#textGradient)">H</text>
+  
+  <!-- Small dot accent -->
+  <circle cx="25" cy="7" r="1.5" fill="#10b981"/>
+</svg>
