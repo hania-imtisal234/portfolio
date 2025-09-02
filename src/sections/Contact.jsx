@@ -24,15 +24,41 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
-  const handleSubmit = (e) => {
-    // Don't prevent default - let the form submit naturally
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
-    // Show loading state but let the form submit normally
-    setTimeout(() => {
+
+    try {
+      // Create form data from the form
+      const formData = new FormData(e.target);
+      
+      // Convert to URL encoded format for Netlify
+      const params = new URLSearchParams();
+      for (let [key, value] of formData.entries()) {
+        params.append(key, value);
+      }
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        // Log the error for debugging
+        console.error('Form submission failed:', response.status, response.statusText);
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      setSubmitStatus('error');
+    } finally {
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   const handleChange = (e) => {
@@ -92,13 +118,12 @@ const Contact = () => {
               onSubmit={handleSubmit}
               name="contact"
               method="POST"
-              action="/thank-you.html"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="space-y-3 bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-2xl p-5 shadow-2xl border border-gray-200 dark:border-gray-700 blue:border-blue-700"
               style={{ transform: "translateZ(20px)" }}
             >
-              {/* Netlify form detection */}
+              {/* Hidden inputs for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
               <div style={{ display: 'none' }}>
                 <label>
@@ -301,28 +326,6 @@ const Contact = () => {
                 </motion.a>
               ))}
             </div>
-            
-            {/* Backup Contact Link */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="text-center mt-8"
-            >
-              <p className="text-sm text-gray-500 dark:text-gray-400 blue:text-blue-300 mb-4">
-                Having trouble with the form above?
-              </p>
-              <motion.a
-                href="/contact"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Use Alternative Contact Form
-              </motion.a>
-            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -21,18 +21,6 @@
   # Enable form spam protection
   spam_protection = true
 
-# Redirect to standalone contact page
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 200
-
-# Redirect successful form submissions to thank you page
-[[redirects]]
-  from = "/thank-you"
-  to = "/thank-you.html"
-  status = 200
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
