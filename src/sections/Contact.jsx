@@ -29,52 +29,33 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Check if we're on Netlify (production) or local development
-    const isNetlify = window.location.hostname.includes('netlify.app') || 
-                     window.location.hostname.includes('netlify.com');
-
     try {
-      if (isNetlify) {
-        // Try Netlify Forms first (for production)
-        const form = e.target;
-        const formDataObj = new FormData(form);
-        
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formDataObj).toString(),
-        });
-
-        if (response.ok) {
-          setSubmitStatus('success');
-          setFormData({ name: '', email: '', message: '' });
-          return;
-        } else {
-          throw new Error(`Netlify Forms failed: ${response.status}`);
-        }
+      // Create form data from the form
+      const formData = new FormData(e.target);
+      
+      // Convert to URL encoded format for Netlify
+      const params = new URLSearchParams();
+      for (let [key, value] of formData.entries()) {
+        params.append(key, value);
       }
       
-      // Fallback to EmailJS for development or if Netlify fails
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_name: 'Hania',
-      };
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
+      });
 
-      // You'll need to replace these with your actual EmailJS credentials
-      // For now, we'll simulate success
-      console.log('Would send via EmailJS:', templateParams);
-      
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        // Log the error for debugging
+        console.error('Form submission failed:', response.status, response.statusText);
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Network error:', error);
       setSubmitStatus('error');
-      console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
     }
