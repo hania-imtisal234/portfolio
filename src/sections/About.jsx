@@ -205,21 +205,33 @@ const About = () => {
                     onHoverStart={() => setHoveredSkill(skill.name)}
                     onHoverEnd={() => setHoveredSkill(null)}
                     whileHover={{ 
-                      scale: 1.02,
-                      y: -3,
+                      scale: 1.08,
+                      y: -8,
+                      rotateY: 5,
+                      rotateX: 5,
                     }}
                     style={{ transformStyle: "preserve-3d" }}
                   >
                     <motion.div 
-                      className="bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-xl p-4 text-center shadow-lg border border-gray-200 dark:border-gray-700 blue:border-blue-800 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                      className="bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-xl p-4 text-center shadow-lg border border-gray-200 dark:border-gray-700 blue:border-blue-800 transition-all duration-300 overflow-hidden"
                       style={{ transform: "translateZ(15px)" }}
+                      animate={{
+                        boxShadow: hoveredSkill === skill.name 
+                          ? "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.2)" 
+                          : "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                        borderColor: hoveredSkill === skill.name 
+                          ? "rgba(59, 130, 246, 0.5)" 
+                          : "transparent"
+                      }}
+                      transition={{ duration: 0.3 }}
                     >
                       <motion.div 
                         className="text-2xl mb-2 flex items-center justify-center h-8"
                         animate={{
-                          scale: hoveredSkill === skill.name ? 1.1 : 1,
+                          scale: hoveredSkill === skill.name ? 1.2 : 1,
+                          rotateY: hoveredSkill === skill.name ? 15 : 0,
                         }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
                       >
                       {(() => {
                         const IconComponent = getSkillIcon(skill.iconType);
