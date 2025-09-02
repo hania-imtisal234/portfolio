@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { WavyText, CodingElements, FloatingElement } from '../components';
 import { socialLinks } from '../constants/index';
 import { FaLinkedin, FaEnvelope, FaGithub, FaInstagram, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
