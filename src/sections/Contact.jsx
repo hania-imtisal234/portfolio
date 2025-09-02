@@ -31,12 +31,8 @@ const Contact = () => {
 
     try {
       // Using Netlify Forms - works automatically when deployed to Netlify
-      const formData = new FormData();
-      formData.append('form-name', 'contact');
-      formData.append('name', e.target.name.value);
-      formData.append('email', e.target.email.value);
-      formData.append('message', e.target.message.value);
-
+      const formData = new FormData(e.target);
+      
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

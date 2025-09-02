@@ -196,38 +196,31 @@ const About = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white blue:text-blue-50 mb-6">Technical Skills</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  className="relative group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.0 + index * 0.05 }}
-                  onHoverStart={() => setHoveredSkill(skill.name)}
-                  onHoverEnd={() => setHoveredSkill(null)}
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 10,
-                    rotateX: 5,
-                  }}
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  <motion.div 
-                    className="bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-xl p-4 text-center shadow-lg border border-gray-200 dark:border-gray-700 blue:border-blue-800 hover:shadow-xl transition-all duration-300"
-                    style={{ transform: "translateZ(15px)" }}
-                    animate={{
-                      rotateY: hoveredSkill === skill.name ? 15 : 0,
-                      rotateX: hoveredSkill === skill.name ? 10 : 0,
+                  <motion.div
+                    key={skill.name}
+                    className="relative group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1.0 + index * 0.05 }}
+                    onHoverStart={() => setHoveredSkill(skill.name)}
+                    onHoverEnd={() => setHoveredSkill(null)}
+                    whileHover={{ 
+                      scale: 1.05,
+                      y: -5,
                     }}
-                    transition={{ duration: 0.3 }}
+                    style={{ transformStyle: "preserve-3d" }}
                   >
                     <motion.div 
-                      className="text-2xl mb-2"
-                      animate={{
-                        scale: hoveredSkill === skill.name ? 1.2 : 1,
-                        rotateY: hoveredSkill === skill.name ? 360 : 0,
-                      }}
-                      transition={{ duration: 0.5 }}
+                      className="bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-xl p-4 text-center shadow-lg border border-gray-200 dark:border-gray-700 blue:border-blue-800 hover:shadow-xl transition-all duration-300"
+                      style={{ transform: "translateZ(15px)" }}
                     >
+                      <motion.div 
+                        className="text-2xl mb-2"
+                        animate={{
+                          scale: hoveredSkill === skill.name ? 1.2 : 1,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
                       {(() => {
                         const IconComponent = getSkillIcon(skill.iconType);
                         return <IconComponent style={{ color: skill.color }} />;
@@ -253,7 +246,7 @@ const About = () => {
             className="text-center"
           >
             <motion.div
-              className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 blue:from-blue-800 blue:to-purple-800 rounded-2xl p-6"
+              className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 blue:from-blue-800 blue:to-purple-800 rounded-2xl p-6 border border-blue-200 dark:border-blue-700 blue:border-blue-600"
               whileHover={{ scale: 1.02, rotateY: 2 }}
               style={{ transformStyle: "preserve-3d" }}
             >
