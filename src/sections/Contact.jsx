@@ -25,40 +25,14 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // Don't prevent default - let the form submit naturally
     setIsSubmitting(true);
     setSubmitStatus(null);
-
-    const form = e.target;
     
-    // Try a direct form submission approach for Netlify
-    const formData = new FormData(form);
-    
-    // Method 1: Try fetch first
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(response => {
-      console.log('Response status:', response.status);
-      if (response.ok || response.status === 200) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        // If fetch fails, try the native form submission as fallback
-        console.log('Fetch failed, trying native submission');
-        form.submit();
-      }
-    })
-    .catch(error => {
-      console.error('Fetch error, trying native submission:', error);
-      // Fallback to native form submission
-      form.submit();
-    })
-    .finally(() => {
-      setTimeout(() => setIsSubmitting(false), 2000);
-    });
+    // Show loading state but let the form submit normally
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 2000);
   };
 
   const handleChange = (e) => {
@@ -118,6 +92,7 @@ const Contact = () => {
               onSubmit={handleSubmit}
               name="contact"
               method="POST"
+              action="/thank-you.html"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="space-y-3 bg-white dark:bg-gray-800 blue:bg-blue-900 rounded-2xl p-5 shadow-2xl border border-gray-200 dark:border-gray-700 blue:border-blue-700"
@@ -326,6 +301,28 @@ const Contact = () => {
                 </motion.a>
               ))}
             </div>
+            
+            {/* Backup Contact Link */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="text-center mt-8"
+            >
+              <p className="text-sm text-gray-500 dark:text-gray-400 blue:text-blue-300 mb-4">
+                Having trouble with the form above?
+              </p>
+              <motion.a
+                href="/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Use Alternative Contact Form
+              </motion.a>
+            </motion.div>
           </motion.div>
         </div>
       </div>
