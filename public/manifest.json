@@ -1,6 +1,6 @@
 {
-  "short_name": "Hania's Portfolio",
-  "name": "Hania's Portfolio - Full Stack Developer",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
