@@ -1,13 +1,62 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar but keep scrolling functionality - Force override all scrollbars */
+@layer base {
+  /* Hide scrollbars globally with !important */
+  * {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+  }
+  
+  *::-webkit-scrollbar {
+    display: none !important; /* WebKit */
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
+  }
+  
+  *::-webkit-scrollbar-track {
+    display: none !important;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
+  
+  html, body {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+  }
+  
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none !important; /* WebKit */
+    width: 0px !important;
+    height: 0px !important;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+  .scrollbar-hide {
+    /* For Webkit browsers (Chrome, Safari, Edge) */
+    -ms-overflow-style: none !important;  /* IE and Edge */
+    scrollbar-width: none !important;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none !important;  /* Chrome, Safari, Opera */
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar-track {
+    display: none !important;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
 }

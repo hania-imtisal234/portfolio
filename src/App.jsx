@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Hero from './sections/Hero.jsx';
 import About from './sections/About.jsx';
 import Projects from './sections/Projects.jsx';
@@ -21,7 +21,15 @@ const App = () => {
   const scrollToSection = idx => {
     const container = scrollRef.current;
     if (container && container.children[idx]) {
-      container.children[idx].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+      const isDesktop = window.innerWidth >= 768; // md breakpoint
+      
+      if (isDesktop) {
+        // Desktop: horizontal scroll
+        container.children[idx].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+      } else {
+        // Mobile: vertical scroll
+        container.children[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       setCurrent(idx);
     }
   };
@@ -30,16 +38,27 @@ const App = () => {
   const handleScroll = () => {
     const container = scrollRef.current;
     if (!container) return;
-    const { scrollLeft, offsetWidth } = container;
-    const idx = Math.round(scrollLeft / offsetWidth);
-    setCurrent(idx);
+    
+    // Check if we're on desktop (horizontal scroll) or mobile (vertical scroll)
+    const isDesktop = window.innerWidth >= 768; // md breakpoint
+    
+    if (isDesktop) {
+      const { scrollLeft, offsetWidth } = container;
+      const idx = Math.round(scrollLeft / offsetWidth);
+      setCurrent(idx);
+    } else {
+      const { scrollTop, offsetHeight } = container;
+      const idx = Math.round(scrollTop / offsetHeight);
+      setCurrent(Math.min(idx, sections.length - 1));
+    }
   };
 
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative w-screen md:h-screen min-h-screen md:overflow-hidden">
+      {/* Desktop: Horizontal scroll, Mobile: Vertical scroll */}
       <div
         ref={scrollRef}
-        className="w-screen h-screen flex flex-row overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        className="w-screen md:h-screen min-h-screen flex md:flex-row flex-col md:overflow-x-auto md:overflow-y-hidden overflow-x-hidden overflow-y-auto snap-x md:snap-mandatory snap-y snap-mandatory scrollbar-thin scrollbar-thumb-pastelPurple scrollbar-track-pastelGray"
         style={{ scrollBehavior: 'smooth' }}
         tabIndex={0}
         onScroll={handleScroll}
@@ -48,8 +67,9 @@ const App = () => {
           <section
             key={id}
             id={id}
-            className="w-screen h-screen flex-shrink-0 flex-grow-0 snap-center scrollbar-hide"
-            data-section={id}
+            className={`w-screen md:h-screen min-h-screen flex-shrink-0 flex-grow-0 snap-center md:snap-start overflow-y-auto ${
+              id === 'about' ? '' : 'flex items-center justify-center'
+            }`}
           >
             {component}
           </section>
@@ -71,12 +91,16 @@ const App = () => {
         ))}
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Desktop only */}
       {current > 0 && (
-        <ArrowButton3D direction="left" onClick={() => scrollToSection(current - 1)} />
+        <div className="hidden md:block">
+          <ArrowButton3D direction="left" onClick={() => scrollToSection(current - 1)} />
+        </div>
       )}
       {current < sections.length - 1 && (
-        <ArrowButton3D direction="right" onClick={() => scrollToSection(current + 1)} />
+        <div className="hidden md:block">
+          <ArrowButton3D direction="right" onClick={() => scrollToSection(current + 1)} />
+        </div>
       )}
     </div>
   );
