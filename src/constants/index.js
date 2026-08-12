@@ -1,245 +1,173 @@
 // Portfolio Data Constants
 // This file contains all the data constants used across different sections
 
-export const skills = [
-  // Programming Languages
-  { name: 'JavaScript', iconType: 'SiJavascript', color: '#F7DF1E' },
-  { name: 'TypeScript', iconType: 'SiTypescript', color: '#3178C6' },
-  { name: 'Python', iconType: 'SiPython', color: '#3776AB' },
-  { name: 'C++', iconType: 'SiCplusplus', color: '#00599C' },
-  
-  // Web Development - MERN Stack
-  { name: 'React.js', iconType: 'SiReact', color: '#61DAFB' },
-  { name: 'Node.js', iconType: 'SiNodedotjs', color: '#339933' },
-  { name: 'Express.js', iconType: 'SiExpress', color: '#000000' },
-  { name: 'Nest.js', iconType: 'SiNestjs', color: '#E0234E' },
-  
-  // Databases
-  { name: 'MongoDB', iconType: 'SiMongodb', color: '#47A248' },
-  { name: 'MySQL', iconType: 'SiMysql', color: '#4479A1' },
-  { name: 'PostgreSQL', iconType: 'SiPostgresql', color: '#336791' },
-  
-  // Tools & Technologies
-  { name: 'RESTful APIs', iconType: 'FaCode', color: '#FF6B6B' },
-  { name: 'Docker', iconType: 'SiDocker', color: '#2496ED' },
-  { name: 'Git/GitHub', iconType: 'SiGit', color: '#F05032' },
-  { name: 'Redux', iconType: 'SiRedux', color: '#764ABC' },
-  
-  // Methodologies & Architecture
-  { name: 'Agile/Scrum', iconType: 'SiJira', color: '#0052CC' },
-  { name: 'Microservices', iconType: 'SiKubernetes', color: '#326CE5' },
-  { name: 'AI/Prompt Engineering', iconType: 'FaRobot', color: '#FF6B35' },
-];
+export const personalInfo = {
+  name: 'Hania Imtisal',
+  title: 'Full-Stack Engineer',
+  tagline: 'TypeScript · Next.js · React/Redux · PostgreSQL · AWS',
+  location: 'Milton, ON',
+  phone: '437-876-6539',
+  email: 'hania.imtisal234@gmail.com',
+  headline: "I build software that ships.",
+  intro:
+    "Full-stack engineer who takes products from database schema to production. Right now I'm building AI-driven hiring workflows at Potenco — before that, compliance platforms, ad-tech marketplaces, and warehouse systems real businesses run on.",
+  photo: '/profile.jpg',
+};
 
 export const socialLinks = [
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/hania-imtisal-9b4b35274/',
+    url: 'https://www.linkedin.com/in/hania-imtisal',
     iconType: 'FaLinkedin',
-    color: '#0077B5'
-  },
-  {
-    name: 'Email',
-    url: 'mailto:hania.imtisal234@gmail.com',
-    iconType: 'FaEnvelope',
-    color: '#EA4335'
+    color: '#0077B5',
   },
   {
     name: 'GitHub',
     url: 'https://github.com/hania-imtisal234',
     iconType: 'FaGithub',
-    color: '#171515'
+    color: '#171515',
   },
   {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/hania_imtisal/',
-    iconType: 'FaInstagram',
-    color: '#E4405F'
-  }
+    name: 'Email',
+    url: 'mailto:hania.imtisal234@gmail.com',
+    iconType: 'FaEnvelope',
+    color: '#EA4335',
+  },
 ];
 
-export const projects = [
+// Grouped technical skills, matching the resume's technical skills section
+export const skillGroups = [
   {
-    title: 'Our Blues',
-    category: 'Mental Health',
-    description: 'A comprehensive mental health platform for students featuring therapist booking system, secure payment integration, and AI-powered chatbot providing soothing, supportive responses for mental wellness.',
-    image: '/placeholder-project-1.jpg',
-    tags: ['React', 'Node.js', 'AI Chatbot', 'Payment Gateway', 'Mental Health'],
-    featured: true,
-    github: 'https://github.com/hania-imtisal234/Our-Blues',
-    liveDemo: null
+    category: 'Frontend',
+    items: ['JavaScript (ES6+)', 'TypeScript', 'React.js', 'Next.js', 'Redux', 'RTK Query', 'TailwindCSS', 'Three.js', 'Context API', 'Angular'],
   },
   {
-    title: 'NFT Marketplace',
-    category: 'Blockchain',
-    description: 'A decentralized NFT marketplace built with modern web technologies, enabling users to mint, buy, and sell digital assets securely.',
-    image: '/placeholder-project-1.jpg',
-    tags: ['JavaScript', 'Blockchain', 'Web3', 'React'],
-    featured: true,
-    github: 'https://github.com/hania-imtisal234/NFT-marketplace',
-    liveDemo: null
+    category: 'Backend',
+    items: ['Node.js', 'Nest.js', 'Express.js', 'Python', 'Django', 'FastAPI', 'GraphQL', 'JWT Auth', 'BullMQ', 'Spring Boot'],
   },
   {
-    title: 'Disease Predicting System',
-    category: 'Machine Learning',
-    description: 'ML model that predicts diseases based on symptoms, family history, and medications using advanced data analysis techniques.',
-    image: '/placeholder-project-2.jpg',
-    tags: ['Python', 'Machine Learning', 'Data Science', 'AI'],
-    featured: true,
-    github: 'https://github.com/hania-imtisal234/Disease-Predicting-System',
-    liveDemo: null
+    category: 'Databases',
+    items: ['PostgreSQL', 'MySQL', 'MSSQL', 'MongoDB', 'Query Optimization', 'Indexing'],
   },
   {
-    title: 'Hospital Management System',
-    category: 'Full-Stack',
-    description: 'Comprehensive healthcare management system with patient records, appointment scheduling, and administrative features.',
-    image: '/placeholder-project-3.jpg',
-    tags: ['Python', 'Django', 'Database', 'Healthcare'],
-    featured: true,
-    github: 'https://github.com/hania-imtisal234/HospitalManagementSystem',
-    liveDemo: null
+    category: 'DevOps & Cloud',
+    items: ['AWS (Lambda, S3)', 'Docker', 'Kubernetes', 'Jenkins', 'Git/GitHub', 'Redis'],
   },
   {
-    title: 'Confinity Banking Platform',
-    category: 'Web Development',
-    description: 'Smart banking platform with modern UI/UX, built using C# and SQL for secure financial transactions and account management.',
-    image: '/placeholder-project-4.jpg',
-    tags: ['C#', 'SQL', 'JavaScript', 'Banking'],
-    featured: true,
-    github: 'https://github.com/hania-imtisal234/Confinity',
-    liveDemo: null
+    category: 'Testing & Practice',
+    items: ['Jest', 'Pytest', 'Mocha', 'Cypress', 'React Testing Library', 'Agile/Scrum', 'JIRA'],
+  },
+];
+
+// Flat list kept for any components that expect a simple array of skill names
+export const skills = skillGroups.flatMap((group) => group.items);
+
+export const experience = [
+  {
+    company: 'Potenco',
+    companyUrl: null,
+    role: 'Full Stack Developer',
+    location: 'Toronto',
+    period: 'Jun 2026 - Present',
+    bullets: [
+      'Architected and deployed 8+ microservices using FastAPI, Next.js, PostgreSQL, and AWS, enabling scalable and independently deployable services.',
+      'Engineered 20+ secure REST APIs with JWT authentication and role-based access control, supporting 4 user roles across the platform.',
+      'Designed and launched 5+ AI agentic workflows to automate resume analysis and hiring decisions, reducing manual recruiter effort.',
+      'Orchestrated 10+ asynchronous workflows with Redis and BullMQ for AI processing, document parsing, and notifications, improving platform responsiveness.',
+      'Developed and optimized 6+ real-time dashboards to monitor AI pipelines, user activity, and system performance, enabling faster issue detection.',
+      'Partnered with product stakeholders to deliver production-ready features through Agile sprints, accelerating feature delivery.',
+      'Authored unit and integration tests with Pytest and Jest, strengthening code quality and reducing regressions through peer reviews.',
+    ],
   },
   {
-    title: 'OS Simulator',
-    category: 'System Programming',
-    description: 'Operating system simulator in C featuring CPU scheduling, memory management, banker\'s algorithm, and page replacement algorithms.',
-    image: '/placeholder-project-5.jpg',
-    tags: ['C', 'Operating Systems', 'Algorithms', 'Memory Management'],
-    featured: false,
-    github: 'https://github.com/hania-imtisal234/Os_Stimulator',
-    liveDemo: null
+    company: 'Techverx',
+    companyUrl: 'https://www.techverx.com/',
+    role: 'Software Engineer',
+    location: null,
+    period: 'May 2024 - Apr 2025',
+    bullets: [
+      "Led a full-stack project using Node.js, Nest.js, Next.js, and TypeScript after the lead's departure, delivering 100% on time and reducing production bugs by 30%.",
+      'Built 20+ reusable React and Angular components and SPAs, improving maintainability and development speed.',
+      'Developed secure REST and GraphQL APIs with JWT authentication and Spring Boot/Spring Framework, supporting scalable backend processing.',
+      'Optimized SQL queries and indexing, improving API and dashboard performance by 25-40%.',
+      'Built React dashboards for system monitoring, reducing debugging time by 30% via real-time visibility.',
+      'Built asynchronous workflows with BullMQ and CRON to support scalable background processing.',
+      'Used Jira and Git within Agile Scrum/Kanban sprints, enabling the team to deliver releases 15% faster.',
+      'Collaborated with clients in 5+ meetings and delivered 3+ demos, translating requirements into production features.',
+    ],
   },
   {
-    title: 'Weather App',
-    category: 'Web Development',
-    description: 'Real-time weather application with location-based forecasts, interactive UI, and responsive design for all devices.',
-    image: '/placeholder-project-6.jpg',
-    tags: ['JavaScript', 'React', 'API Integration', 'Responsive'],
-    featured: false,
-    github: 'https://github.com/hania-imtisal234/weatherApp-assignmentW4-HaniaImtisal-',
-    liveDemo: null
+    company: 'Syff.co',
+    companyUrl: null,
+    role: 'Full-Stack Developer',
+    location: 'Remote',
+    period: 'Jun 2023 - Apr 2024',
+    bullets: [
+      'Redesigned and developed the backend architecture and RESTful APIs for a modern Warehouse Management System, enabling real-time inventory tracking across multiple warehouses for B2B users.',
+      'Migrated from a legacy PHP stack to Nest.js and PostgreSQL, ensuring zero data loss across transactional records using automated data migration scripts.',
+      'Boosted data access speed by up to 60% through schema redesign, optimized indexing, and efficient query strategies.',
+      'Delivered weekly feature increments across UK time zones via agile sprints, with zero missed deadlines over 10 months.',
+    ],
+  },
+];
+
+export const education = {
+  school: 'National University of Computing and Emerging Sciences (FAST)',
+  location: 'Lahore',
+  degree: "Bachelor's, Computer Science",
+  coursework: 'OOP, Data Structures, Algorithms, DBMS, Operating Systems, Computer Networks, AI, Machine Learning, Web Development',
+};
+
+// Featured, real-world shipped projects
+export const featuredProjects = [
+  {
+    title: 'ALS RiskComply',
+    url: 'https://riskcomply.online',
+    category: 'Compliance / SaaS',
+    description:
+      'A microservices-based compliance platform for vendor management. Built scalable REST/GraphQL APIs, event-driven workflows with CRON and BullMQ, OCR-based document extraction for expiring compliance items, automated client/vendor email notifications, and configurable report generation.',
+    tags: ['Node.js', 'REST/GraphQL', 'BullMQ', 'OCR', 'CRON', 'Jest'],
   },
   {
-    title: 'Task Controller',
-    category: 'Productivity',
-    description: 'Task management application with intuitive interface for organizing, tracking, and completing projects efficiently.',
-    image: '/placeholder-project-7.jpg',
-    tags: ['Python', 'Task Management', 'GUI', 'Productivity'],
-    featured: false,
-    github: 'https://github.com/hania-imtisal234/TaskController-Hania',
-    liveDemo: null
+    title: 'Savvy Displays',
+    url: 'https://savvydisplays.com',
+    category: 'Ad-Tech Marketplace',
+    description:
+      'A cloud-based digital advertising marketplace enabling advertisers to create, schedule, and manage campaigns across a distributed network of screens, with campaign targeting, dynamic pricing, and real-time monitoring plus predictive analytics on impressions and sales performance.',
+    tags: ['React', 'Node.js', 'Analytics', 'Cloud'],
   },
-  {
-    title: 'REST Countries Explorer',
-    category: 'Web Development',
-    description: 'Interactive country explorer using REST Countries API with search, filtering, and detailed country information display.',
-    image: '/placeholder-project-8.jpg',
-    tags: ['JavaScript', 'REST API', 'Responsive', 'Data Visualization'],
-    featured: false,
-    github: 'https://github.com/hania-imtisal234/RestCountries',
-    liveDemo: null
-  }
+];
+
+// Smaller/earlier projects, shown as a lightweight list
+export const sideProjects = [
+  { title: 'Our Blues', description: 'Mental health platform with therapist booking, payments, and an AI support chatbot.', github: 'https://github.com/hania-imtisal234/Our-Blues' },
+  { title: 'NFT Marketplace', description: 'Decentralized marketplace to mint, buy, and sell digital assets.', github: 'https://github.com/hania-imtisal234/NFT-marketplace' },
+  { title: 'Disease Predicting System', description: 'ML model predicting disease risk from symptoms and history.', github: 'https://github.com/hania-imtisal234/Disease-Predicting-System' },
+  { title: 'Hospital Management System', description: 'Patient records, scheduling, and admin tooling for healthcare.', github: 'https://github.com/hania-imtisal234/HospitalManagementSystem' },
+  { title: 'Confinity Banking Platform', description: 'Smart banking UI with secure transactions and account management.', github: 'https://github.com/hania-imtisal234/Confinity' },
+  { title: 'OS Simulator', description: 'CPU scheduling, memory management, and page replacement simulator in C.', github: 'https://github.com/hania-imtisal234/Os_Stimulator' },
 ];
 
 // Navigation items for the portfolio
 export const navigationItems = [
-  { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ];
 
-// Tech stack items for various animations
-export const techStack = [
-  'React', 'Three.js', 'WebGL', 'TypeScript', 'Node.js', 
-  'Git', 'Docker', 'AWS', 'Next.js', 'Framer Motion'
-];
-
-// Contact methods
-export const contactMethods = [
-  { name: 'Email', value: 'hello@yourportfolio.com', icon: '📧' },
-  { name: 'Phone', value: '+1 (555) 123-4567', icon: '📱' },
-  { name: 'Location', value: 'New York, NY', icon: '📍' },
-];
-
-// Hero section data
-export const heroData = {
-  title: 'Creative Developer',
-  subtitle: 'you can count on',
-  description: 'I turn complex ideas into experiences users love. I help founders and companies craft story-driven digital products that are both functional and beautiful.',
-  ctaText: 'Chat with me',
-  ctaLink: '#contact'
-};
-
-// Code snippets for different sections
+// Floating code snippets used by the CodingElements background (darker shades so they read on white)
 export const codeSnippets = {
   default: [
-    { code: "function createPortfolio() {", color: "text-blue-400" },
-    { code: "  return 'Amazing Experience';", color: "text-green-400" },
-    { code: "}", color: "text-blue-400" },
-    { code: "const techStack = [", color: "text-yellow-400" },
-    { code: "  'React', 'Three.js'", color: "text-purple-400" },
-    { code: "];", color: "text-yellow-400" },
+    { code: 'const engineer = {', color: 'text-blue-600' },
+    { code: "  name: 'Hania Imtisal',", color: 'text-violet-600' },
+    { code: "  stack: ['TS', 'Next.js', 'Node'],", color: 'text-amber-600' },
+    { code: "  focus: 'full-stack'", color: 'text-emerald-600' },
+    { code: '};', color: 'text-blue-600' },
   ],
-  contact: [
-    { code: "function sendMessage() {", color: "text-blue-400" },
-    { code: "  return 'Hello!';", color: "text-green-400" },
-    { code: "}", color: "text-blue-400" },
-    { code: "const contact = {", color: "text-yellow-400" },
-    { code: "  email: 'hello@me.com'", color: "text-purple-400" },
-    { code: "};", color: "text-yellow-400" },
-    { code: "npm run contact", color: "text-pink-400" },
-    { code: "git push origin main", color: "text-cyan-400" },
-  ],
-  projects: [
-    { code: "npm install awesome", color: "text-green-400" },
-    { code: "git commit -m '✨'", color: "text-blue-400" },
-    { code: "const project = {", color: "text-yellow-400" },
-    { code: "  name: 'Portfolio'", color: "text-purple-400" },
-    { code: "};", color: "text-yellow-400" },
-    { code: "function deploy() {", color: "text-pink-400" },
-    { code: "  return 'Live!';", color: "text-cyan-400" },
-    { code: "}", color: "text-pink-400" },
-  ]
 };
 
-// Matrix rain keywords for different sections
+// Matrix-rain keywords used by the CodingElements background
 export const matrixKeywords = {
-  default: ['const', 'let', 'var', 'function', 'return', 'if', 'else', 'for', 'while', 'class', 'import', 'export'],
-  contact: ['email', 'contact', 'message', 'send', 'hello', 'hi', 'chat', 'talk', 'connect', 'reach'],
-  projects: ['npm', 'yarn', 'git', 'docker', 'aws', 'heroku', 'vercel', 'netlify', 'github', 'gitlab', 'bitbucket', 'vscode', 'vim', 'emacs', 'terminal']
+  default: ['const', 'async', 'await', 'function', 'return', 'import', 'export', 'API', '{}', '=>'],
 };
-
-// Floating icons for different sections
-export const floatingIcons = {
-  contact: ['📧', '💬', '📱', '🌐', '📞', '✉️', '💼', '🤝'],
-  tech: ['⚛️', '🎮', '✨', '💻', '🔧', '📱', '🚀'],
-  hero: ['⚛️', '🎮', '✨', '💻'],
-  general: ['🎯', '🎭', '🎪', '🎨', '🎵', '🎬', '🎮', '⭐']
-};
-
-// Technology/Skills arrays for different sections
-export const technologies = {
-  hero: ['React', 'Three.js', 'Framer Motion', 'Tailwind CSS', 'TypeScript', 'WebGL', 'Node.js', 'Git'],
-  matrix: ['0', '1', '{}', '()', '[]', '=>', '//', '/*', '*/', 'const', 'let', 'var', 'function', 'return', 'if', 'else']
-};
-
-// Hero animation code snippets  
-export const heroCodeSnippets = [
-  { code: "function createPortfolio() {", color: "text-blue-400" },
-  { code: "  return 'Amazing Experience';", color: "text-green-400" },
-  { code: "}", color: "text-blue-400" },
-  { code: "const techStack = [", color: "text-yellow-400" },
-  { code: "  'React', 'Three.js'", color: "text-purple-400" },
-  { code: "];", color: "text-yellow-400" },
-];

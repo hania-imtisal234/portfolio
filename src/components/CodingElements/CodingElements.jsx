@@ -12,14 +12,15 @@ const CodingElements = ({ variant = 'default' }) => {
       {snippets.map((snippet, index) => (
         <motion.div
           key={index}
-          className={`absolute font-mono text-xs ${snippet.color} opacity-15`}
+          className={`absolute font-mono text-sm font-medium ${snippet.color}`}
           style={{
             left: `${10 + index * 15}%`,
             top: `${20 + index * 10}%`,
+            opacity: 0.35,
           }}
           initial={{ opacity: 0, y: 30, rotateX: -45 }}
           animate={{
-            opacity: 0.15,
+            opacity: 0.35,
             y: 0,
             rotateX: 0,
             rotateY: [0, 180, 360],
@@ -49,13 +50,13 @@ const CodingElements = ({ variant = 'default' }) => {
       {Array.from({ length: 12 }, (_, i) => (
         <motion.div
           key={i}
-          className="absolute text-green-400 text-xs opacity-15"
+          className="absolute text-slate-500 text-sm font-mono font-medium"
           style={{
             left: `${Math.random() * 100}%`,
           }}
           animate={{
             y: [-10, 110],
-            opacity: [0, 0.2, 0],
+            opacity: [0, 0.4, 0],
           }}
           transition={{
             duration: Math.random() * 2 + 1.5,
