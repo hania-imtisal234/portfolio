@@ -20,7 +20,7 @@ const Projects = () => {
           viewport={{ once: true, amount: 0.4 }}
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6"
+          className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-6"
         >
           Projects
         </motion.h2>
@@ -34,14 +34,14 @@ const Projects = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeUp}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group p-5 rounded-2xl border border-gray-200 hover:border-gray-400 hover:shadow-sm transition-all flex flex-col"
+              className="group p-5 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-md hover:shadow-blue-50 transition-all flex flex-col"
             >
-              <h3 className="text-base font-semibold text-gray-900">{project.title}</h3>
-              <p className="text-xs text-gray-400">{project.category}</p>
+              <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">{project.title}</h3>
+              <p className="text-xs text-blue-500 font-medium">{project.category}</p>
               <p className="mt-2.5 text-sm text-gray-600 leading-relaxed flex-grow">{project.description}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 text-xs text-gray-600 bg-gray-50 border border-gray-200 rounded-full">
+                  <span key={tag} className="px-2 py-0.5 text-xs text-blue-700 bg-blue-50 border border-blue-100 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -50,10 +50,10 @@ const Projects = () => {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 hover:gap-2.5 transition-all w-fit"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:gap-2.5 transition-all w-fit"
               >
                 {domainOf(project.url)}
-                <FaArrowUpRightFromSquare size={11} className="text-gray-400 group-hover:text-gray-700 transition-colors" />
+                <FaArrowUpRightFromSquare size={11} className="text-blue-400 group-hover:text-blue-600 transition-colors" />
               </a>
             </motion.div>
           ))}
@@ -67,7 +67,7 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="mt-8 pt-8 border-t border-gray-100"
         >
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-3">Other projects</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-3">Other projects</h3>
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-2">
             {sideProjects.map((project) => (
               <a
@@ -77,7 +77,7 @@ const Projects = () => {
                 rel="noopener noreferrer"
                 className="group flex items-start gap-2 py-1"
               >
-                <FaGithub className="mt-0.5 text-gray-400 group-hover:text-gray-700 transition-colors shrink-0" size={14} />
+                <FaGithub className="mt-0.5 text-gray-400 group-hover:text-blue-600 transition-colors shrink-0" size={14} />
                 <span className="text-sm">
                   <span className="text-gray-900 font-medium group-hover:underline">{project.title}</span>
                   <span className="text-gray-500"> — {project.description}</span>

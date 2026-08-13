@@ -5,5 +5,6 @@ export { default as FloatingShape } from './FloatingShapes/FloatingShape.jsx';
 export { default as CodingElements } from './CodingElements/CodingElements.jsx';
 export { default as NeuralNetwork } from './NeuralNetwork/NeuralNetwork.jsx';
 export { default as AnimatedCoder } from './AnimatedCoder/AnimatedCoder.jsx';
+export { default as AnimatedDatabase } from './AnimatedDatabase/AnimatedDatabase.jsx';
 export { default as CodeTyping } from './CodeTyping/CodeTyping.jsx';
 export { default as ArrowButton3D } from './ArrowButton/ArrowButton3D.jsx';

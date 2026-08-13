@@ -65,7 +65,7 @@ export const skills = skillGroups.flatMap((group) => group.items);
 export const experience = [
   {
     company: 'Potenco',
-    companyUrl: null,
+    companyUrl: 'https://www.potenco.ca/',
     role: 'Full Stack Developer',
     location: 'Toronto',
     period: 'Jun 2026 - Present',
@@ -98,7 +98,7 @@ export const experience = [
   },
   {
     company: 'Syff.co',
-    companyUrl: null,
+    companyUrl: 'https://syffinc.com/',
     role: 'Full-Stack Developer',
     location: 'Remote',
     period: 'Jun 2023 - Apr 2024',

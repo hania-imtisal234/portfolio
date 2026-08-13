@@ -25,7 +25,7 @@ const Contact = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Get in touch</h2>
           <p className="mt-2 text-gray-500">
             Open to new opportunities — reach out at{' '}
-            <a href={`mailto:${personalInfo.email}`} className="text-gray-900 underline decoration-gray-300 hover:decoration-gray-900">
+            <a href={`mailto:${personalInfo.email}`} className="text-blue-700 underline decoration-blue-200 hover:decoration-blue-600">
               {personalInfo.email}
             </a>
           </p>
@@ -49,7 +49,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.name}
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
                 >
                   <Icon size={16} />
                 </a>

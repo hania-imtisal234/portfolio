@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
-import { AnimatedCoder } from '../components';
+import { AnimatedCoder, AnimatedDatabase } from '../components';
 import { personalInfo, socialLinks } from '../constants/index';
 
 const iconMap = { FaLinkedin, FaGithub, FaEnvelope };
@@ -21,6 +21,7 @@ const Hero = () => {
   return (
     <section className="relative w-full pt-36 pb-20 px-6">
       <AnimatedCoder position="right" />
+      <AnimatedDatabase />
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
         <motion.img
           initial={{ opacity: 0, y: 12 }}
@@ -29,7 +30,7 @@ const Hero = () => {
           src={imgSrc}
           alt={personalInfo.name}
           onError={() => setImgSrc(fallbackAvatar)}
-          className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover shadow-md ring-1 ring-gray-200 mb-6"
+          className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover shadow-md ring-4 ring-blue-100 mb-6"
         />
 
         <motion.p
@@ -67,7 +68,7 @@ const Hero = () => {
         >
           <a
             href="#contact"
-            className="px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-700 transition-colors"
+            className="px-6 py-3 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200"
           >
             Let's talk
           </a>
@@ -81,7 +82,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.name}
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
                 >
                   <Icon size={16} />
                 </a>

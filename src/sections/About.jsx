@@ -19,7 +19,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.4 }}
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-8"
+            className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-8"
           >
             Skills
           </motion.h2>
@@ -40,7 +40,7 @@ const About = () => {
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-full"
+                      className="px-3 py-1 text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-full hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                     >
                       {item}
                     </span>
@@ -61,7 +61,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.4 }}
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-8"
+            className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-8"
           >
             Experience
           </motion.h2>
@@ -84,7 +84,7 @@ const About = () => {
                         href={job.companyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-900 underline decoration-gray-300 hover:decoration-gray-900"
+                        className="text-blue-700 underline decoration-blue-200 hover:decoration-blue-600"
                       >
                         {job.company}
                       </a>
@@ -100,7 +100,7 @@ const About = () => {
                 <ul className="space-y-1.5">
                   {job.bullets.map((bullet, idx) => (
                     <li key={idx} className="text-sm text-gray-600 leading-relaxed pl-4 relative">
-                      <span className="absolute left-0 top-2 w-1 h-1 rounded-full bg-gray-300" />
+                      <span className="absolute left-0 top-2 w-1 h-1 rounded-full bg-blue-400" />
                       {bullet}
                     </li>
                   ))}
@@ -118,7 +118,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="mt-12 pt-10 border-t border-gray-100"
           >
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Education</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-4">Education</h3>
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
               <div>
                 <p className="text-base font-semibold text-gray-900">{education.degree}</p>

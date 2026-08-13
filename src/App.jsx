@@ -35,7 +35,7 @@ const App = () => {
           <ul className="flex items-center gap-5 text-sm text-gray-600">
             {navigationItems.map((item) => (
               <li key={item.name}>
-                <a href={item.href} className="hover:text-gray-900 transition-colors">
+                <a href={item.href} className="hover:text-blue-600 transition-colors">
                   {item.name}
                 </a>
               </li>
